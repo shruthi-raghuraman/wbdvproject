@@ -1,11 +1,11 @@
 import React from 'react';
-import SearchBarComponent from "./components/SearchBarComponent";
+import LandingPageContainer from "./containers/LandingPageContainer";
 import './App.css';
 
 function App() {
   return (
       <div>
-        <SearchBarComponent/>
+        <LandingPageContainer/>
       </div>
 
   );

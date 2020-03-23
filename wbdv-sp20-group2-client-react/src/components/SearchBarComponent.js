@@ -7,7 +7,6 @@ class SearchBarComponent extends Component {
             // currently using form with action
             //TODO add CSS and format
             <div>
-                <h1> RECIPES RADAR </h1>
                 <form className = "search" action="google api placeholder">
                     <input type ="text"
                            className= "input"
