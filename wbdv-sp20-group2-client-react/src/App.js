@@ -2,13 +2,13 @@ import React from 'react';
 import LandingPageContainer from "./containers/LandingPageContainer";
 import './App.css';
 
-function App() {
-  return (
+const App = () => (
+
       <div>
         <LandingPageContainer/>
       </div>
 
   );
-}
+
 
 export default App;
