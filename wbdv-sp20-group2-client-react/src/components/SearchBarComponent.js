@@ -4,7 +4,7 @@ class SearchBarComponent extends Component {
     render() {
         return (
             //TODO decide how to go about submitting to api,
-            // currently using form with action
+            // currently using html form with action
             //TODO add CSS and format
             <div>
                 <form className = "search" action="google api placeholder">
