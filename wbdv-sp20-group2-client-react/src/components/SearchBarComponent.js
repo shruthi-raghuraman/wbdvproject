@@ -7,18 +7,16 @@ class SearchBarComponent extends Component {
             // currently using html form with action
             //TODO add CSS and format
             <div>
-                <form className = "search" action="google api placeholder">
-                    <input type ="text"
-                           className= "input"
-                           placeholder= "Search Recipes"/>
-                    <button type = "submit"> Search </button>
+                <form className="search" action="google api placeholder">
+                    <input type="text"
+                           className="input"
+                           placeholder="Search Recipes"/>
+                    <button type="submit"> Search</button>
                 </form>
             </div>
-
 
         );
     }
 }
-
 
 export default SearchBarComponent;
