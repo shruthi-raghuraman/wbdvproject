@@ -4,7 +4,10 @@ import './App.css';
 
 const App = () => (
 
-      <div>
+      <div className='container mt-4'>
+          <h4 className='display-4 text-center mb-4'>
+              <i className='fas fa-cookie-bite'></i> Recipes Finder
+          </h4>
         <LandingPageContainer/>
       </div>
 
