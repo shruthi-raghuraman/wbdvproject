@@ -6,10 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "cd wbdv-sp20-group2-client-react && npm start --prefix wbdv-sp20-group2-client-react",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "npm run dev"
-
+    "client": "cd wbdv-sp20-group2-client-react && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
