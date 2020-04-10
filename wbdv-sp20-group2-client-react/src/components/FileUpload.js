@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, {Fragment, useState} from 'react';
 import Message from './Message';
 import axios from 'axios';
 
@@ -7,7 +7,7 @@ const FileUpload = () => {
     const [filename, setFilename] = useState('Choose File');
     const [uploadedFile, setUploadedFile] = useState({});
     const [message, setMessage] = useState('');
-    const [labels, setLabels] = useState({})
+    const [labels, setLabels] = useState([])
 
     const onChange = e => {
         setFile(e.target.files[0]);
@@ -26,9 +26,9 @@ const FileUpload = () => {
                 },
             });
 
-            const { fileName, filePath, resultSummaries } = res.data;
+            const {fileName, filePath, resultSummaries} = res.data;
 
-            setUploadedFile({ fileName, filePath });
+            setUploadedFile({fileName, filePath});
             setLabels(resultSummaries);
 
             setMessage('File Uploaded');
@@ -43,7 +43,7 @@ const FileUpload = () => {
 
     return (
         <Fragment>
-            {message ? <Message msg={message} /> : null}
+            {message ? <Message msg={message}/> : null}
             <form onSubmit={onSubmit}>
                 <div className='custom-file mt-4'>
                     <input
@@ -68,11 +68,14 @@ const FileUpload = () => {
                 <div className='row mt-5'>
                     <div className='col-md-6 m-auto'>
                         <h3 className='text-center'>{uploadedFile.fileName}</h3>
-                        <img style={{ width: '100%' }} src={uploadedFile.filePath} alt='' />
+                        <img style={{width: '100%'}} src={uploadedFile.filePath} alt=''/>
                     </div>
                 </div>
             ) : null}
-            <p>{JSON.stringify(labels)}</p>
+            {labels.map(label => <div>
+                <p>Guess: {label.description}</p>
+                <p>Score: {label.score}</p>
+            </div>)}
         </Fragment>
     );
 };
