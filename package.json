@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "cd wbdv-sp20-group2-client-react && npm start",
+    "client": "npm start --prefix wbdv-sp20-group2-client-react",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
@@ -21,8 +21,8 @@
     "nodemon": "^2.0.2",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.6"
-  },
-  "devDependencies": {
+  },  "devDependencies": {
+
     "concurrently": "^5.1.0",
     "nodemon": "^2.0.2"
   }

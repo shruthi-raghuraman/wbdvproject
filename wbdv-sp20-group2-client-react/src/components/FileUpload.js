@@ -7,6 +7,7 @@ const FileUpload = () => {
     const [filename, setFilename] = useState('Choose File');
     const [uploadedFile, setUploadedFile] = useState({});
     const [message, setMessage] = useState('');
+    const [labels, setLabels] = useState({})
 
     const onChange = e => {
         setFile(e.target.files[0]);
@@ -25,9 +26,10 @@ const FileUpload = () => {
                 },
             });
 
-            const { fileName, filePath } = res.data;
+            const { fileName, filePath, resultSummaries } = res.data;
 
             setUploadedFile({ fileName, filePath });
+            setLabels(resultSummaries);
 
             setMessage('File Uploaded');
         } catch (err) {
@@ -70,6 +72,7 @@ const FileUpload = () => {
                     </div>
                 </div>
             ) : null}
+            <p>{JSON.stringify(labels)}</p>
         </Fragment>
     );
 };
