@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e1c392dec832674bc99d06a8a6ddd93d",
+    "revision": "30649fd4d6863a63a168d903d4175d3e",
     "url": "/wbdvproject/index.html"
   },
   {
-    "revision": "28bf52c27b399cf76b8d",
+    "revision": "0a13f09e07d41be2b728",
     "url": "/wbdvproject/static/css/main.36497136.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/wbdvproject/static/js/2.547ad89d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "28bf52c27b399cf76b8d",
-    "url": "/wbdvproject/static/js/main.ff359a92.chunk.js"
+    "revision": "0a13f09e07d41be2b728",
+    "url": "/wbdvproject/static/js/main.d723619c.chunk.js"
   },
   {
     "revision": "24235b406b413eb90e5a",
