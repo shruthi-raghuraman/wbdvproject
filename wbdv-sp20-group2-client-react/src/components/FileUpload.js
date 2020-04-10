@@ -2,6 +2,19 @@ import React, {Fragment, useState} from 'react';
 import Message from './Message';
 import axios from 'axios';
 
+const getRecipes = async dishes => {
+    let response = {}
+    try {
+        response =
+            await axios.get(
+                `https://api.edamam.com/search?app_id=8c82a996&app_key=4c99b8e052177acab7281af278080f6f&q=${dishes}&from=0&to=1`);
+    } catch {
+        console.error("There's an error while fetching the data")
+    } finally {
+        return response
+    }
+}
+
 const FileUpload = () => {
     const [file, setFile] = useState('');
     const [filename, setFilename] = useState('Choose File');
@@ -28,16 +41,27 @@ const FileUpload = () => {
 
             const {fileName, filePath, resultSummaries} = res.data;
 
+            const labelsWithRecipe = await Promise.all(resultSummaries.map(async label => {
+                const recipe = await getRecipes(label.description);
+
+                if (recipe && recipe.data && recipe.data.hits) {
+                    return {...label, recipe: recipe.data.hits[0].recipe}
+                }
+                return {label, recipe: null};
+
+            }))
+
             setUploadedFile({fileName, filePath});
-            setLabels(resultSummaries);
+            setLabels(labelsWithRecipe);
 
             setMessage('File Uploaded');
         } catch (err) {
-            if (err.response.status === 500) {
-                setMessage('There was a problem with the server');
-            } else {
-                setMessage(err.response.data.msg);
-            }
+            console.log({err});
+            // if (err && err.response && err.response.status === 500) {
+            //     setMessage('There was a problem with the server');
+            // } else {
+            //     setMessage(err.response.data.msg);
+            // }
         }
     };
 
@@ -73,8 +97,11 @@ const FileUpload = () => {
                 </div>
             ) : null}
             {labels.map(label => <div>
-                <p>Guess: {label.description}</p>
+                <h1>Guess: {label.description}</h1>
                 <p>Score: {label.score}</p>
+
+                {label.recipe && (<><h1>Matched recipe for today: {label.recipe.label}</h1>
+                    <img src={label.recipe.image} alt={label.recipe.label}/></>)}
             </div>)}
         </Fragment>
     );
