@@ -4,7 +4,7 @@
   "description": "Team Members: Fay Feghali, Robert Dragomir, Shruthi Raghuraman, Siyan He",
   "main": "server.js",
   "scripts": {
-    "prestart": "npm i; cd wbdv-sp20-group2-client-react; npm i; cd -",
+    "build": "npm i; cd wbdv-sp20-group2-client-react; npm i; cd -",
     "start": "npm run dev",
     "server": "nodemon server.js",
     "client": "npm start --prefix wbdv-sp20-group2-client-react",
